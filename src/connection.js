@@ -21,7 +21,7 @@ exports.connectDB = (mongo_uri, options = default_options) => {
   });
 
   mongoose.connection.on('error', (error) => {
-    throw new error.message();
+    throw new Error(error.message);
   });
 
   is_connected = true;
