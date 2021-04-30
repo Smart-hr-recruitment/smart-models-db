@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const idValidator = require('mongoose-id-validator');
 
-const { emailReg } = require('../utils/regexps');
+const { emailReg } = require('../utils/regexp');
 
 const { Schema } = mongoose;
 
