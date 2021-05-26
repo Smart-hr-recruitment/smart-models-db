@@ -23,6 +23,6 @@ const Skill = new Schema({
     toObject: { virtuals: true },
 });
 
-User.plugin(idValidator);
+Skill.plugin(idValidator);
 
 module.exports = mongoose.model('Skill', Skill);
