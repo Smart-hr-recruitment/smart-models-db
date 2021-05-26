@@ -1,6 +1,6 @@
 {
   "name": "smart-models-db",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Database models",
   "main": "./src/index.js",
   "scripts": {
