@@ -17,7 +17,7 @@ const Vacancy = new Schema({
 
 Vacancy.plugin(idValidator);
 
-Position.virtual('skills', {
+Vacancy.virtual('skills', {
     ref: 'Skill',
     localField: '_id',
     foreignField: 'vacancy_id',
