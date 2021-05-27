@@ -12,14 +12,10 @@ const Employee = new Schema({
     },
     email: {
         lowercase: true,
-        type: String,
-        required: true,
-        match: [emailReg, 'Please provide a valid email'],
-        unique: true,
+        type: String
     },
     position_id: {
-        type: String,
-        required: true,
+        type: String
     },
 
 }, {
@@ -35,12 +31,18 @@ Employee.virtual('position', {
     ref: 'Position',
     localField: 'position_id',
     foreignField: '_id',
+    justOne: true
 });
 
 Employee.virtual('skills', {
     ref: 'EmployeeSkill',
     localField: '_id',
-    foreignField: 'employee_id',
+    foreignField: 'employee_id'
 });
+
+Employee.pre('deleteOne', { document: false, query: true }, async function (next) {
+    const doc = await this.model.findOne(this.getFilter());
+    await mongoose.model('Position').deleteOne({ employee_id: doc._id }, next);
+  });
 
 module.exports = mongoose.model('Employee', Employee);
