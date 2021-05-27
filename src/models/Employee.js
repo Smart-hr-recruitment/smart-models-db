@@ -35,6 +35,12 @@ Employee.virtual('position', {
     ref: 'Position',
     localField: 'position_id',
     foreignField: '_id',
-  });
+});
+
+Employee.virtual('skills', {
+    ref: 'EmployeeSkill',
+    localField: '_id',
+    foreignField: 'employee_id',
+});
 
 module.exports = mongoose.model('Employee', Employee);
