@@ -3,19 +3,15 @@ const idValidator = require('mongoose-id-validator');
 
 const { Schema } = mongoose;
 
-const Skill = new Schema({
+const EmployeeSkill = new Schema({
     skill_name: {
         type: String,
         required: true,
     },
-    position_id: {
+    employee_id: {
         type: Schema.Types.ObjectId,
-        ref: 'Position'
-    },
-    vacancy_id: {
-        type: Schema.Types.ObjectId,
-        ref: 'Vacancy'
-    } 
+        ref: 'Employee'
+    }
 }, {
     timestamps: true,
     versionKey: false,
@@ -23,6 +19,6 @@ const Skill = new Schema({
     toObject: { virtuals: true },
 });
 
-Skill.plugin(idValidator);
+EmployeeSkill.plugin(idValidator);
 
-module.exports = mongoose.model('Skill', Skill);
+module.exports = mongoose.model('EmployeeSkill', EmployeeSkill);
