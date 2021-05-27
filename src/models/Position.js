@@ -7,6 +7,7 @@ const Position = new Schema({
     position_name: {
         type: String,
         required: true,
+        unique: true
     }
 }, {
     timestamps: true,
