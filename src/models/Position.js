@@ -18,9 +18,9 @@ const Position = new Schema({
 Position.plugin(idValidator);
 
 Position.virtual('skills', {
-    ref: 'Skill',
+    ref: 'PositionSkill',
     localField: '_id',
     foreignField: 'position_id',
-  });
+});
 
 module.exports = mongoose.model('Position', Position);
